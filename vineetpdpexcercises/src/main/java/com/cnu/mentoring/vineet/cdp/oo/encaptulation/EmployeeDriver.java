@@ -1,11 +1,13 @@
 package com.cnu.mentoring.vineet.cdp.oo.encaptulation;
 
+import org.apache.log4j.Logger;
+
 public class EmployeeDriver {
-    public static void main(String[] args) {
-        Employee employee = new Employee(101, 5000, "Srinivas");
+	public static final Logger LOGGER = Logger.getLogger(EmployeeDriver.class);
 
-        employee.setEmployeeSalary(10000);
-
-        System.out.println(employee);
-    }
+	public static void main(String[] args) {
+		Employee employee = new Employee(101, 5000, "Srinivas");
+		employee.setEmployeeSalary(10000);
+		LOGGER.info(employee);
+	}
 }
