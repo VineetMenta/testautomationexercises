@@ -3,7 +3,7 @@ package com.cnu.mentoring.vineet.cdp.oo.encaptulation;
 import org.apache.log4j.Logger;
 
 public class EmployeeDriver {
-	public static final Logger LOGGER = Logger.getLogger(EmployeeDriver.class);
+	private static final Logger LOGGER = Logger.getLogger(EmployeeDriver.class);
 
 	public static void main(String[] args) {
 		Employee employee = new Employee(101, 5000, "Srinivas");

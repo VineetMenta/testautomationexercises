@@ -1,8 +1,33 @@
 package com.cnu.mentoring.vineet.cdp.oo.abstraction;
 
-public class Car {
+import org.apache.log4j.Logger;
 
-    private static final int numberOfWheels = 4;
-    public String model;
-
+public abstract class AbstractPage {
+	private String pageTitle;
+	private String pageUrl; 
+	private String productLogo;
+	private static final Logger LOGGER = Logger.getLogger(AbstractPage.class);
+	
+	public String getPageTitle() {
+		// Internal implementation to return pageTitle
+		LOGGER.info("Getting Page Title");
+		return pageTitle;
+	}
+	
+	public String getPageUrl() {
+		//Internal implementation to return pageUrl
+		LOGGER.info("Getting Page URL");
+		return pageUrl;
+	}
+	
+	public void performBrowserBack() {
+		//Internal implementation to perform browserBack. 
+		LOGGER.info("Browser Back Operation is completed");
+	}
+	
+	public String getProductLogo() {
+		//Internal implementation to get Logo.
+		LOGGER.info("Getting Product Logo");
+		return productLogo;
+	}
 }
