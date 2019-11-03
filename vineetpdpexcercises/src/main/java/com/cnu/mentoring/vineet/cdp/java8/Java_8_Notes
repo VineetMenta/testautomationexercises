@@ -1,0 +1,21 @@
+Java 8 Notes: 
+
+* forEach method is introduced in Java 8, It is used instead of noise code that is required for Iterator object. 
+Iterator is included in java.lang.Iterator interface.
+
+* Functional Interfaces and Lambda expressions. Main advantage of a lambda expressions is for anonymous instantiation of an interface.
+and a Functional Interface is a interface which only has one abstract method. functional interfaces can be used with lambda expressions to achieve functional programming.
+
+* Static and Default methods in interface, with Java 8 now interfaces can have method implementation for Static and default methods.
+
+* DateTime API, from Java 8 the DateTime api has been improved with timezones. java.time.format provides classes and methods
+to print and parse the dates. DateTimeFormatter class is introduced to convert datetime objects into strings. The new TimeApi uses
+Enums instead of Integer constants for storing values of days and months. 
+
+* Collection Api improvements, Java 8 includes removeIf(filter) method to filter collections with filters. Collections now work with stream api 
+
+* Stream api is introduced in Java 8 with support for functions like filter, map, reduce. Stream api is mainly useful to handle huge collections.
+Now Collections include stream() and parallelStream() for single and parallel execution. 
+
+* Files Api improvement. The files api now has new methods added in Java 8. Files.find(), Files.list(dir), Files.lines(path)
+

@@ -1,0 +1,17 @@
+1: Java Strings: 
+* For every java string, 2 objects are created, one in heap memory and one in String pool. 
+* Java strings are immutable, (once created cannot be modified). 
+* If any new operations are performed on the strings, a new object is created with the updated string, but the original object will not be changed.
+* StringTokenizer and StringJoiner are used to change string to tokens, and to join different strings, just like string concatenation 
+
+2: Java Keywords: 
+* Static keyword in java is used to bind the methods or objects to the class. With static keyword for a field, a single copy of the field can be shared across all instances of the object. 
+* The static field is stored in a special heap memory called the PermGen or Metaspace, i.e is the abbreviation for Permanent Generation.
+* Final Keyword: A final field cannot be changed, a final class cannot be extended, a final method cannot be overridden.
+* try block is used to handle code which might throw an exception
+* catch block is used to handle exception
+* finally block is run even the code throws an exception. Generally used to write clean up code. 
+* Synchronize keyword, it has 2 types 1: synchronized block 2: synchronized methods this is mainly used to maintain thread safety.
+
+
+ 
