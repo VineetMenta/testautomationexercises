@@ -20,4 +20,8 @@ public class LoginPage extends AbstractPage {
 	public void clickSubmitButton() {
 		LOGGER.info("Clicking Submit Button");
 	}
+	
+	public void clickSignUpLink() {
+		LOGGER.info("Clicking SignUp field");
+	}
 }
