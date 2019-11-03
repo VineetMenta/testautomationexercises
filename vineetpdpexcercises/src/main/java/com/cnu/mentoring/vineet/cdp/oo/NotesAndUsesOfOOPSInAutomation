@@ -1,0 +1,22 @@
+Abstraction: 
+Abstraction is the concept of hiding the implementation to the end user. The essential components are given access to the user, while the non – essential components are not given access to the user to view or modify. 
+In java abstraction is achieved by “Abstract Classes” and “Interfaces”.
+
+Abstraction in Test automation: We use locators in the Page object model and we create methods to get these elements to perform actions on them in our tests. The methods to get these elements may have custom implementations (E.g. waiting for page to load before finding the element, or using custom wait parameters) which is not visible to the user. This is a classic example of abstraction. 
+
+Encapsulation:
+The process of wrapping up the code and data into a single unit is called as Encapsulation. It’s an effective way to achieve data hiding.
+By providing only, getter or only setter we can make a class fully readable or fully writable class. 
+
+Encapsulation in Test Automation: We use @FindBy to get the web elements using locators in POM. These are accessed by the user using the getter methods. Hence we are hiding the locator data from the user. Here we use the concept of encapsulation, i.e fully readable Page/ Class. 
+
+Inheritance:
+It’s a mechanism that encourages the reusability of classes and methods by inheriting a super class. That is the child class which inherits the super class has access to all of the methods and variables of the super class and it can either modify or use them as it is in the child class. 
+
+Inheritance in Test automation : In our project we have a super class called, Document class this defines the common components of all the documents present in the application, when the user wants to add a specific type of document, then he can extend the parent class (Document) and then add custom variables and methods which are specific to his document. 
+
+Polymorphism: 
+It’s the ability of the object to take on different forms. It enables method overloading and method overriding. 
+
+Polymorphism in Test automation:  For example, the CommonPage class of a TAF contains a method like getCurrentURL(). This behaviour can be iniherited by the child class and can be overridden by a custom implementation to get only a part of the URL, like getting only the domain name. 
+
