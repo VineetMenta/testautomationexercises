@@ -5,8 +5,8 @@ public class Driver {
 		LoginPage loginPage = new LoginPage();
 		loginPage.getPageTitle();
 		loginPage.getPageUrl();
-		loginPage.getLoginField();
-		loginPage.getPasswordField();
+		loginPage.getUserName();
+		loginPage.getPassword();
 		loginPage.clickSubmitButton();
 	}
 }

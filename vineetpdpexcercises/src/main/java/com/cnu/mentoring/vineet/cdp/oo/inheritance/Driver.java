@@ -8,8 +8,8 @@ public class Driver {
 	public static void main(String[] args) {
 		SignUpPage signUpPage = new SignUpPage();
 		signUpPage.clickSignUpLink();
-		signUpPage.getLoginField();
-		signUpPage.getPasswordField();
+		signUpPage.getUserName();
+		signUpPage.getPassword();
 		signUpPage.confirmEmail();
 		signUpPage.confirmPassword();
 		signUpPage.clickSubmitButton();
