@@ -2,12 +2,10 @@ package com.cnu.mentoring.vineet.cdp.oo.codeTask.Appliances;
 
 import org.apache.log4j.Logger;
 
-public class Light extends Appliances implements IAppliance {
-
-	private double powerUsagePerAppliance = 10;
-	private int totalNumberOfAppliances;
-	private int numberOfAppliancesSwitchedOn;
+public class Light extends Appliances{
+	
 	private static final Logger LOGGER = Logger.getLogger(Light.class);
+	private static final double powerUsage = 40;
 
 	public Light(int totalNumberOfApplicances, int numberOfAppliancesSwitchedOn) {
 		this.totalNumberOfAppliances = totalNumberOfApplicances;
@@ -20,20 +18,9 @@ public class Light extends Appliances implements IAppliance {
 			LOGGER.fatal("Number of appliances switched on cannot be more than total number of appliances");
 		}
 	}
-
-	@Override
-	public double powerUsage() {
-		return this.powerUsagePerAppliance * numberOfAppliancesSwitchedOn;
-	}
-
-	@Override
-	public int totalNumberOfAppliances() {
-		return this.totalNumberOfAppliances;
-	}
-
-	@Override
-	public int numberOfAppliancesSwitchedOn() {
-		return this.numberOfAppliancesSwitchedOn;
+	
+	public double getPowerUsageOfAppliance() {
+		return powerUsage;
 	}
 
 }

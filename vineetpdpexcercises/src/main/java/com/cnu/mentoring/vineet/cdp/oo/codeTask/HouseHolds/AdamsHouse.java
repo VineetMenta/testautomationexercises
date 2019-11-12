@@ -31,5 +31,4 @@ public class AdamsHouse implements IHouseHold {
 	public void setAppliances(Appliances... appliances) {
 		this.AdamsHouse = new ArrayList<Appliances>(Arrays.asList(appliances));
 	}
-
 }

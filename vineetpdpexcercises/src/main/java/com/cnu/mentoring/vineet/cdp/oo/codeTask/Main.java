@@ -3,6 +3,7 @@ package com.cnu.mentoring.vineet.cdp.oo.codeTask;
 import org.apache.log4j.Logger;
 
 import com.cnu.mentoring.vineet.cdp.oo.codeTask.Appliances.AirConditioner;
+import com.cnu.mentoring.vineet.cdp.oo.codeTask.Appliances.ApplianceUtils;
 import com.cnu.mentoring.vineet.cdp.oo.codeTask.Appliances.Appliances;
 import com.cnu.mentoring.vineet.cdp.oo.codeTask.Appliances.Fan;
 import com.cnu.mentoring.vineet.cdp.oo.codeTask.Appliances.Heater;
@@ -25,16 +26,15 @@ public class Main {
 		mag.setAppliances(new Light(30,15),new Fan(20, 10),new AirConditioner(10, 8), new Heater(10, 5));
 		
 		LOGGER.info("\n Adam's House");
-		Appliances.sortAppliancesByPowerUsage(adam.getAllAppliances());
-		Appliances.totalPowerBill(adam.getAllAppliances());
+		ApplianceUtils.sortAppliancesByPowerUsage(adam.getAllAppliances());
+		LOGGER.info("Total PowerBill of Adam's House is " + adam.getTotalPowerBill(adam.getAllAppliances()));
 		
 		LOGGER.info("\n Chris's House");
-		Appliances.sortAppliancesByPowerUsage(chris.getAllAppliances());
-		Appliances.totalPowerBill(chris.getAllAppliances());
+		ApplianceUtils.sortAppliancesByPowerUsage(chris.getAllAppliances());
+		LOGGER.info("Total PowerBill of Chris House is " + chris.getTotalPowerBill(chris.getAllAppliances()));
 		
 		LOGGER.info("\n Mag's House");
-		Appliances.sortAppliancesByPowerUsage(mag.getAllAppliances());
-		Appliances.totalPowerBill(mag.getAllAppliances());
-		
+		ApplianceUtils.sortAppliancesByPowerUsage(mag.getAllAppliances());
+		LOGGER.info("Total PowerBill of Mag's House is " + mag.getTotalPowerBill(mag.getAllAppliances()));
 	}
 }
