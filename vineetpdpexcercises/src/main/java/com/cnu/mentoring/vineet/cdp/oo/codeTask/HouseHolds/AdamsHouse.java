@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 
 import com.cnu.mentoring.vineet.cdp.oo.codeTask.Appliances.Appliances;
 
-public class AdamsHouse implements IHouseHold {
+public class AdamsHouse implements HouseHold {
 
 	private static final Logger LOGGER = Logger.getLogger(AdamsHouse.class);
 	private List<Appliances> AdamsHouse;
