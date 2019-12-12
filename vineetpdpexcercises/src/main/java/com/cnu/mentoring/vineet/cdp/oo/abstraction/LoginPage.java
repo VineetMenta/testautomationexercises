@@ -6,7 +6,7 @@ public class LoginPage extends AbstractPage {
     private String username;
     private String password;
     private boolean isClicked = false;
-    private static final Logger LOGGER = Logger.getLogger(AbstractPage.class);
+    private static final Logger LOGGER = Logger.getLogger(LoginPage.class);
 
     public String getUserName() {
         LOGGER.info("Getting Login Field");
