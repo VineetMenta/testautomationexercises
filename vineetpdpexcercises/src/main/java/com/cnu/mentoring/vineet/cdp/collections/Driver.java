@@ -8,5 +8,7 @@ public class Driver {
         tasks.arrayListExample();
         tasks.linkedListExample();
         tasks.hashmapExample();
+        tasks.linkedHashMapExample();
+        tasks.hashSetExample();
     }
 }
