@@ -89,13 +89,41 @@ public class CollectionsTasks {
 
     public void linkedHashSetExample() {
         LinkedHashSet<String> linkedHashSet = new LinkedHashSet<>();
-        for(int i=0 ;i<20;i++)
-            linkedHashSet.add(""+i);
+        for (int i = 0; i < 20; i++)
+            linkedHashSet.add("" + i);
         LOGGER.info("Order of insertion is maintained for LinkedHashSet " + linkedHashSet);
         LOGGER.info("All other methods are similar to HashSet");
     }
 
     public void treeSetExample() {
+        TreeSet<Integer> treeSet = new TreeSet<>();
+        for (int i = 20; i > 0; i--)
+            treeSet.add(i);
+        LOGGER.info("Treeset is always sorted in ascending order inspite of order of insertion " + treeSet);
+        LOGGER.info("Treeset has inbuilt methods to get the ceil and floor of the elements in the set, the ceil of 2 is" +
+                treeSet.ceiling(2) + " The floor of 16 is " + treeSet.floor(16));
+        LOGGER.info("Descending set method is used to return an decending order of elements in the set" + treeSet.descendingSet());
+        LOGGER.info("To get all the e" +
+                "" +
+                "" +
+                "ements less than a specified element we can use headSet method" + treeSet.headSet(10));
+        LOGGER.info("To poll the first and last elements in the set we can use pollFirst and pollLast methods " + treeSet.pollFirst() +
+                " " + treeSet.pollLast());
+        LOGGER.info("To get a subset of elements in the set we can use subset method " + treeSet.subSet(5, 15));
+        LOGGER.info("To get the subset of elements greater than specified number tailSet method can be used " + treeSet.tailSet(12));
+    }
 
+    public void treeMapExample() {
+        TreeMap<Character, Integer> treeMap = new TreeMap<>();
+        for (int i = 97; i <= 122; i++)
+            treeMap.put((char) i, i - 96);
+        LOGGER.info("TreeMap is " + treeMap);
+        LOGGER.info("TreeMap size is " + treeMap.size());
+        LOGGER.info("Getting an element with its ID " + treeMap.get('f'));
+        LOGGER.info("Getting the first entry in a map "+ treeMap.firstEntry());
+        LOGGER.info("Getting the last entry in the map " + treeMap.lastEntry());
+        LOGGER.info("TreeMap has a special method to get the nearest greater/lesser entry based upon " +
+                "the given key value, the next greater entry of 'd' is "+ treeMap.higherEntry('d') + " the previous key lower than 'd'" +
+                "is " + treeMap.lowerEntry('d'));
     }
 }
