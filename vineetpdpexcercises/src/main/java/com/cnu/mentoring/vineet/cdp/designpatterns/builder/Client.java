@@ -1,4 +1,4 @@
-package com.cnu.mentoring.vineet.cdp.designpatterns;
+package com.cnu.mentoring.vineet.cdp.designpatterns.builder;
 
 public class Client {
     public static void main(String[] args) {
