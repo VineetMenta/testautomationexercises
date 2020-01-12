@@ -12,7 +12,7 @@ import java.net.URL;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.equalTo;
 
-public class WeekOneHomeTasks {
+public class WeekOneHomeTaskTests {
 
     @Test
     public void checkStatusCodeRestAssured() {
