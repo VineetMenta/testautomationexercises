@@ -2,17 +2,13 @@ package com.cnu.mentoring.vineet.cdp.apitesting;
 
 import com.cnu.mentoring.vineet.cdp.apitesting.pojos.Event;
 import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import io.restassured.specification.ResponseSpecification;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -27,10 +23,6 @@ public class EventsHomeTaskTests {
                                     .setContentType(ContentType.JSON)
                                     .build();
 
-    ResponseSpecification response = new ResponseSpecBuilder()
-                                        .expectStatusCode(200)
-                                        .expectContentType(ContentType.JSON)
-                                        .build();
     @Test
     public void getEventDetails() {
         Response response = given().spec(request)
