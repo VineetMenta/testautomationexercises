@@ -6,11 +6,10 @@ import org.testng.annotations.Test;
 
 public class CalculatorTests {
 
-    Calculator calculator = new Calculator();
+    Calculator calculator;
 
     @BeforeClass
     public void setCalculatorObject(){
-        System.out.println("@BeforeClass");
         calculator = new Calculator();
     }
 

@@ -8,48 +8,47 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class RestEmployee {
 
     @JsonAlias({"data.name", "data.employee_name"})
-    String employee_name;
+    String name;
 
     @JsonAlias({"data.salary", "data.employee_salary"})
-    int employee_salary;
+    int salary;
 
     @JsonAlias({"data.age", "data.employee_age"})
-    int employee_age;
+    int age;
 
     @JsonProperty("data.id")
     int id;
 
     public RestEmployee(){}
 
-    public RestEmployee(String employee_name, int employee_salary, int employee_age, int id) {
-        this.employee_name = employee_name;
-        this.employee_salary = employee_salary;
-        this.employee_age = employee_age;
-        this.id = id;
+    public RestEmployee(String employee_name, int employee_salary, int employee_age) {
+        this.name = employee_name;
+        this.salary = employee_salary;
+        this.age = employee_age;
     }
 
-    public String getEmployee_name() {
-        return employee_name;
+    public String getName() {
+        return name;
     }
 
-    public void setEmployee_name(String employee_name) {
-        this.employee_name = employee_name;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getEmployee_salary() {
-        return employee_salary;
+    public int getSalary() {
+        return salary;
     }
 
-    public void setEmployee_salary(int employee_salary) {
-        this.employee_salary = employee_salary;
+    public void setSalary(int salary) {
+        this.salary = salary;
     }
 
-    public int getEmployee_age() {
-        return employee_age;
+    public int getAge() {
+        return age;
     }
 
-    public void setEmployee_age(int employee_age) {
-        this.employee_age = employee_age;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public int getId() {

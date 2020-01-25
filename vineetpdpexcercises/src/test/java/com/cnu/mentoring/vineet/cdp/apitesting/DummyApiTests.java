@@ -4,9 +4,11 @@ import com.cnu.mentoring.vineet.cdp.apitesting.pojos.RestEmployee;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.apache.log4j.Logger;
+import org.junit.Assert;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
@@ -14,14 +16,15 @@ import static org.hamcrest.CoreMatchers.equalTo;
 
 public class DummyApiTests {
 
-    private static int NUMBEROFEMPLOYEES = 26;
-    private static RestEmployee employee = new RestEmployee("vineet", 123345, 21, 0);
-    private static String sessionCookie = "51c26b7ec9d476202ea317da8f08ecb8";
+    private static int NUMBER_OF_EMPLOYEES = 24;
+    private static RestEmployee employee = new RestEmployee("vineet", 123345, 21);
+    private static String sessionCookie;
     private static final Logger LOGGER = Logger.getLogger(DummyApiTests.class);
 
     private static final RequestSpecification request = new RequestSpecBuilder()
                                         .setBaseUri("http://dummy.restapiexample.com/api/v1")
-                                        .setContentType(ContentType.TEXT)
+                                        .setContentType(ContentType.JSON)
+                                        .addCookie("PHPSESSID", sessionCookie)
                                         .build();
 
     private static final ResponseSpecification response = new ResponseSpecBuilder()
@@ -29,95 +32,86 @@ public class DummyApiTests {
                                                         .expectStatusCode(200)
                                                         .build();
 
-    /*@BeforeSuite @Ignore
-    public void getCookieForCurrentSession(){
-        sessionCookie = given().baseUri("http://dummy.restapiexample.com/api/v1").when().get("/employee/1").then().extract().cookie("PHPSESSID");
-        LOGGER.info(sessionCookie);
-    }*/
-
-    @Test(priority = 0)
+    @Test
     public void verifyCountOfEmployees(){
-
-        given()
+        Response allEmployeeDetails = given()
                 .spec(request)
-                .cookie("PHPSESSID", sessionCookie)
         .when()
-                .get("/employees")
-        .then()
-                .spec(response)
-                .assertThat()
-                .body("data.size", equalTo(NUMBEROFEMPLOYEES));
+                .get("/employees");
+        sessionCookie = allEmployeeDetails.cookie("PHPSESSID");
+        int countOfEmployees = allEmployeeDetails.path("data.size");
+        Assert.assertTrue(countOfEmployees >= NUMBER_OF_EMPLOYEES);
     }
 
-    @Test(priority = 1)
+    @Test(dependsOnMethods = {"verifyCountOfEmployees"})
     public void addNewEmployee() {
-        employee = given()
+        int empId = given()
                 .spec(request)
-                .cookie("PHPSESSID", sessionCookie)
-                .body("{\"name\":\"vineet\",\"salary\":\"123345\",\"age\":\"21\"}")
+                .body(employee)
         .when()
                 .post("/create")
         .then()
                 .spec(response)
                 .assertThat()
-                .body("data.name", equalTo("vineet"))
+                .body("data.name", equalTo(employee.getName()))
                 .extract()
-                .as(RestEmployee.class);
-        LOGGER.info(employee.getEmployee_name() + "" +  employee.getEmployee_age());
-        NUMBEROFEMPLOYEES++;
+                .path("data.id");
+        employee.setId(empId);
+        LOGGER.info(employee.getId() + " " + employee.getName() + " " +  employee.getAge());
+        NUMBER_OF_EMPLOYEES++;
         verifyCountOfEmployees();
     }
 
-    @Test(priority = 2)
+    @Test(dependsOnMethods = {"addNewEmployee"})
     public void testAddedEmployeeDetails(){
         given()
                 .spec(request)
-                .cookie("PHPSESSID", sessionCookie)
         .when()
                 .get("/employee/" + employee.getId())
         .then()
                 .assertThat()
-                .body("data.employee_name", equalTo(employee.getEmployee_name()),
-                        "data.employee_salary", equalTo(employee.getEmployee_salary()),
-                        "data.employee_age", equalTo(employee.getEmployee_age()));
+                .body("data.employee_name", equalTo(employee.getName()),
+                        "data.employee_salary", equalTo(employee.getSalary()),
+                        "data.employee_age", equalTo(employee.getAge()));
     }
 
-    @Test(priority = 3)
-    public void testUpdateEmployee(){
-        employee = given()
+    @Test(dependsOnMethods = {"testAddedEmployeeDetails"})
+    public void testUpdatedEmployee(){
+        employee.setAge(23);
+        employee.setSalary(1234567);
+
+        given()
                 .spec(request)
-                .cookie("PHPSESSID", sessionCookie)
-                .body("{\"name\":\"vineet\",\"salary\":\"123456\",\"age\":\"23\"}")
+                .body(employee)
         .when()
                 .put("/update/" + employee.getId())
         .then()
-                .extract()
-                .as(RestEmployee.class);
-
-        given().spec(request).when().get("/employee/" + employee.getId()).then().assertThat().body("data.employee_name", equalTo("vineet"),
-                "data.employee_salary", equalTo(123456),
-                "data.employee_age", equalTo(23));
+                .spec(response)
+                .log().all()
+                .assertThat()
+                .body("data.employee_name", equalTo(employee.getName()),
+                        "data.employee_salary", equalTo(employee.getSalary()),
+                        "data.employee_age", equalTo(employee.getAge()),
+                        "data.id", equalTo(employee.getId()));
     }
 
-    @Test(priority = 4)
+    @Test(dependsOnMethods = {"testUpdatedEmployee"})
     public void deleteEmployee(){
         given()
                 .spec(request)
-                .cookie("PHPSESSID", sessionCookie)
         .when()
                 .delete("/delete/" + employee.getId())
         .then()
                 .body("message", equalTo("successfully! deleted Records"));
     }
 
-    @Test(priority = 5)
+    @Test(dependsOnMethods = {"deleteEmployee"})
     public void testDeletedEmployee() {
         given()
                 .spec(request)
-                .cookie("PHPSESSID", sessionCookie)
         .when()
-                .get("/employees")
+                .get("/employee/" + employee.getId())
         .then()
-                .body("data.size", equalTo(--NUMBEROFEMPLOYEES));
+                .body("data", equalTo("Record does not found."));
     }
 }
