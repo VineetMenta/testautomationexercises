@@ -8,7 +8,8 @@ public class GeneratePremium {
     public static final Logger LOGGER = Logger.getLogger(GeneratePremium.class);
 
     public static void main(String[] args) {
-       Insurance insurance = InsuranceFactory.getInsuranceType("Health");
-       LOGGER.info("The premium for Heath insurance for 3 years is " + insurance.calculatePremium( 3));
+       Insurance insurance = InsuranceFactory.getInsuranceType("Car");
+       int durationOfPlan = 3;
+       LOGGER.info("The premium for " + insurance.getClass().getSimpleName() + " for " + durationOfPlan +" years is " + insurance.calculatePremium(durationOfPlan));
     }
 }

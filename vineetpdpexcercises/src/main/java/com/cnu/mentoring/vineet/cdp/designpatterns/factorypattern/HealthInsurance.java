@@ -1,13 +1,17 @@
 package com.cnu.mentoring.vineet.cdp.designpatterns.factorypattern;
 
 public class HealthInsurance extends Insurance{
-    @Override
-    void setRateOfPlan() {
+
+    public HealthInsurance(){
+        setBaseRate();
+        setRateOfPlan();
+    }
+
+    public void setRateOfPlan() {
         rateOfPlan = 7.56;
     }
 
-    @Override
-    void setBaseRate() {
+    public void setBaseRate() {
         baseRate = 120;
     }
 }

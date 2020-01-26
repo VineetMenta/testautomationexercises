@@ -6,7 +6,6 @@ public abstract class Insurance {
     abstract void setRateOfPlan();
     abstract void setBaseRate();
     public double calculatePremium(int duration){
-        System.out.println(baseRate + " " + rateOfPlan);
         return baseRate + rateOfPlan * duration;
     }
 }
