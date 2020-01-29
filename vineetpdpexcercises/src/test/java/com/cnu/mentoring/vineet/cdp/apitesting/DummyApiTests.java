@@ -8,39 +8,52 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.apache.log4j.Logger;
-import org.junit.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 
 public class DummyApiTests {
 
     private static int NUMBER_OF_EMPLOYEES = 24;
     private static RestEmployee employee = new RestEmployee("vineet", 123345, 21);
-    private static String sessionCookie;
     private static final Logger LOGGER = Logger.getLogger(DummyApiTests.class);
 
-    private static final RequestSpecification request = new RequestSpecBuilder()
-                                        .setBaseUri("http://dummy.restapiexample.com/api/v1")
-                                        .setContentType(ContentType.JSON)
-                                        .addCookie("PHPSESSID", sessionCookie)
-                                        .build();
+    private static RequestSpecification request;
 
-    private static final ResponseSpecification response = new ResponseSpecBuilder()
-                                                        .expectContentType(ContentType.JSON)
-                                                        .expectStatusCode(200)
-                                                        .build();
+    private static ResponseSpecification response;
+
+    @BeforeTest
+    public void setReqAndResSpecification(){
+        Response allEmployeeDetails = given()
+                .when()
+                .get("/employees");
+
+        String sessionCookie = allEmployeeDetails.cookie("PHPSESSID");
+
+        request = new RequestSpecBuilder()
+                .setBaseUri("http://dummy.restapiexample.com/api/v1")
+                .setContentType(ContentType.JSON)
+                .addCookie("PHPSESSID", sessionCookie)
+                .build();
+
+        response = new ResponseSpecBuilder()
+                .expectContentType(ContentType.JSON)
+                .expectStatusCode(200)
+                .build();
+    }
 
     @Test
     public void verifyCountOfEmployees(){
-        Response allEmployeeDetails = given()
+        given()
                 .spec(request)
         .when()
-                .get("/employees");
-        sessionCookie = allEmployeeDetails.cookie("PHPSESSID");
-        int countOfEmployees = allEmployeeDetails.path("data.size");
-        Assert.assertTrue(countOfEmployees >= NUMBER_OF_EMPLOYEES);
+                .get("/employees")
+        .then()
+                .assertThat()
+                .body("data.size", greaterThanOrEqualTo(NUMBER_OF_EMPLOYEES));
     }
 
     @Test(dependsOnMethods = {"verifyCountOfEmployees"})
