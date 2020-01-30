@@ -2,15 +2,13 @@ package com.cnu.mentoring.vineet.cdp.oo.codeTask.Appliances;
 
 import org.apache.log4j.Logger;
 
-public class AirConditioner extends Appliances implements IAppliance {
+public class AirConditioner extends Appliances {
 
-	private double powerUsagePerAppliance = 150;
-	private int totalNumberOfAppliances;
-	private int numberOfAppliancesSwitchedOn;
+	private static final double powerUsage = 100;
 	private static final Logger LOGGER = Logger.getLogger(AirConditioner.class);
 
 	public AirConditioner(int totalNumberOfApplicances, int numberOfAppliancesSwitchedOn) {
-		this.totalNumberOfAppliances = totalNumberOfApplicances;
+		totalNumberOfAppliances = totalNumberOfApplicances;
 		try {
 			if (numberOfAppliancesSwitchedOn < totalNumberOfApplicances)
 				this.numberOfAppliancesSwitchedOn = numberOfAppliancesSwitchedOn;
@@ -20,20 +18,8 @@ public class AirConditioner extends Appliances implements IAppliance {
 			LOGGER.fatal("Number of appliances switched on cannot be more than total number of appliances");
 		}
 	}
-
-	@Override
-	public double powerUsage() {
-		return this.powerUsagePerAppliance * numberOfAppliancesSwitchedOn;
+	
+	public double getPowerUsageOfAppliance() {
+		return powerUsage;
 	}
-
-	@Override
-	public int totalNumberOfAppliances() {
-		return this.totalNumberOfAppliances;
-	}
-
-	@Override
-	public int numberOfAppliancesSwitchedOn() {
-		return this.numberOfAppliancesSwitchedOn;
-	}
-
 }

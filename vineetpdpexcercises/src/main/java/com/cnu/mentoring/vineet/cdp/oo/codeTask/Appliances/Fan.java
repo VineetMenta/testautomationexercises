@@ -3,14 +3,13 @@ package com.cnu.mentoring.vineet.cdp.oo.codeTask.Appliances;
 import org.apache.log4j.Logger;
 
 public class Fan extends Appliances implements IAppliance {
-
-	private double powerUsagePerAppliance = 15;
-	private int totalNumberOfAppliances;
-	private int numberOfAppliancesSwitchedOn;
+	
 	private static final Logger LOGGER = Logger.getLogger(Fan.class);
+	private static final double powerUsage = 40;
+	
 
 	public Fan(int totalNumberOfApplicances, int numberOfAppliancesSwitchedOn) {
-		this.totalNumberOfAppliances = totalNumberOfApplicances;
+		totalNumberOfAppliances = totalNumberOfApplicances;
 		try {
 			if (numberOfAppliancesSwitchedOn < totalNumberOfApplicances)
 				this.numberOfAppliancesSwitchedOn = numberOfAppliancesSwitchedOn;
@@ -21,19 +20,7 @@ public class Fan extends Appliances implements IAppliance {
 		}
 	}
 
-	@Override
-	public double powerUsage() {
-		return this.powerUsagePerAppliance * numberOfAppliancesSwitchedOn;
+	public double getPowerUsageOfAppliance() {
+		return powerUsage;
 	}
-
-	@Override
-	public int totalNumberOfAppliances() {
-		return this.totalNumberOfAppliances;
-	}
-
-	@Override
-	public int numberOfAppliancesSwitchedOn() {
-		return this.numberOfAppliancesSwitchedOn;
-	}
-
 }
