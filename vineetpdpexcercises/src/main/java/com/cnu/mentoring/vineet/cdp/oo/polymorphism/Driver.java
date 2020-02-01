@@ -1,8 +1,8 @@
 package com.cnu.mentoring.vineet.cdp.oo.polymorphism;
 
-import java.util.concurrent.TimeUnit;
-
 import org.apache.log4j.Logger;
+
+import java.util.concurrent.TimeUnit;
 
 public class Driver {
 	public static int IMPLICIT_WAIT_TIME = 5;

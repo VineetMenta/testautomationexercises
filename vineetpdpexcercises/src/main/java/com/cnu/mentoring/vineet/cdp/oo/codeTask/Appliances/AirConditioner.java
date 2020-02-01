@@ -1,25 +1,28 @@
 package com.cnu.mentoring.vineet.cdp.oo.codeTask.Appliances;
 
-import org.apache.log4j.Logger;
-
-public class AirConditioner extends Appliances {
+public class AirConditioner implements IAppliance {
 
 	private static final double powerUsage = 100;
-	private static final Logger LOGGER = Logger.getLogger(AirConditioner.class);
+	private boolean isSwitchedOn;
 
-	public AirConditioner(int totalNumberOfApplicances, int numberOfAppliancesSwitchedOn) {
-		totalNumberOfAppliances = totalNumberOfApplicances;
-		try {
-			if (numberOfAppliancesSwitchedOn < totalNumberOfApplicances)
-				this.numberOfAppliancesSwitchedOn = numberOfAppliancesSwitchedOn;
-			else
-				throw new Exception();
-		} catch (Exception e) {
-			LOGGER.fatal("Number of appliances switched on cannot be more than total number of appliances");
-		}
+	public AirConditioner(boolean isSwitchedOn){
+		this.isSwitchedOn = isSwitchedOn;
 	}
-	
-	public double getPowerUsageOfAppliance() {
+
+	public boolean getState() {
+		return isSwitchedOn;
+	}
+
+	public double getPowerUsage() {
 		return powerUsage;
+	}
+
+	public double getEffectivePowerConsumedByAppliance() {
+		if(isSwitchedOn){
+			return powerUsage;
+		}
+		else{
+			return 0;
+		}
 	}
 }

@@ -1,19 +1,18 @@
 package com.cnu.mentoring.vineet.cdp.oo.codeTask.HouseHolds;
 
+import com.cnu.mentoring.vineet.cdp.oo.codeTask.Appliances.IAppliance;
+import org.apache.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-
-import com.cnu.mentoring.vineet.cdp.oo.codeTask.Appliances.Appliances;
-
 public class MagHouse implements HouseHold {
 	private static final Logger LOGGER = Logger.getLogger(MagHouse.class);
-	private List<Appliances> MagHouse;
+	private List<IAppliance> MagHouse;
 
 	@Override
-	public List<Appliances> getAllAppliances() {
+	public List<IAppliance> getAllAppliances() {
 		try {
 			if (this.MagHouse == null) {
 				throw new Exception();
@@ -27,8 +26,8 @@ public class MagHouse implements HouseHold {
 	}
 
 	@Override
-	public void setAppliances(Appliances... appliances) {
-		this.MagHouse = new ArrayList<Appliances>(Arrays.asList(appliances));
+	public void setAppliances(IAppliance... appliances) {
+		this.MagHouse = new ArrayList<IAppliance>(Arrays.asList(appliances));
 	}
 
 }

@@ -1,10 +1,10 @@
 package com.cnu.mentoring.vineet.cdp.corejava.codeexamples;
 
+import org.apache.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import org.apache.log4j.Logger;
 
 class Employee implements Comparable<Employee> {
 	int empId;
