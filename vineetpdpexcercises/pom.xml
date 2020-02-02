@@ -29,6 +29,9 @@
                     <includes>
                         <include>**/*Tests.class</include>
                     </includes>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>src/test/resources/${suiteXmlFile}</suiteXmlFile>
+                    </suiteXmlFiles>
                 </configuration>
              </plugin>
             <plugin>

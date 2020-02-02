@@ -1,0 +1,11 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="All Tests Suite" parallel="methods">
+    <test name="All Tests" thread-count="5">
+        <packages>
+            <package name="com.cnu.mentoring.vineet.cdp.apitesting" />
+            <package name="com.cnu.mentoring.vineet.cdp.abstraction"/>
+            <package name="com.cnu.mentoring.vineet.cdp.unittesting"/>
+        </packages>
+    </test>
+</suite>
