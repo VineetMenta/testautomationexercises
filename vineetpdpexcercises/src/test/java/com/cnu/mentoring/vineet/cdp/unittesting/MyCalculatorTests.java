@@ -4,32 +4,32 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class CalculatorTests {
+public class MyCalculatorTests {
 
-    Calculator calculator;
+    MyCalculator myCalculator;
 
     @BeforeClass
     public void setCalculatorObject(){
-        calculator = new Calculator();
+        myCalculator = new MyCalculator();
     }
 
     @Test (priority = 1, invocationCount = 10)
     public void testAddNumbers(){
-        Assert.assertEquals(calculator.addNumbers(1234567890,223534645) , 1458102535);
+        Assert.assertEquals(myCalculator.addNumbers(1234567890,223534645) , 1458102535);
     }
 
     @Test (enabled = false)
     public void testSubtractNumbers(){
-        Assert.assertEquals(calculator.subtractNumbers(1,2 ), -1);
+        Assert.assertEquals(myCalculator.subtractNumbers(1,2 ), -1);
     }
 
     @Test
     public void testMultiplyNumbers(){
-        Assert.assertEquals(calculator.multiplyNumbers(1,2), 2);
+        Assert.assertEquals(myCalculator.multiplyNumbers(1,2), 2);
     }
 
     @Test
     public void testDivideNumbers(){
-        Assert.assertEquals(calculator.divideNumbers(1,2), 0);
+        Assert.assertEquals(myCalculator.divideNumbers(1,2), 0);
     }
 }
