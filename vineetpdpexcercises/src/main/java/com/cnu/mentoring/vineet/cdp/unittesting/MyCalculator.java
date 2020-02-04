@@ -1,6 +1,6 @@
 package com.cnu.mentoring.vineet.cdp.unittesting;
 
-public class Calculator {
+public class MyCalculator {
 
     public int addNumbers(int a, int b){
         return a+b;

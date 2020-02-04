@@ -1,8 +1,9 @@
 package com.cnu.mentoring.vineet.cdp.oo.polymorphism;
 
-import org.apache.log4j.Logger;
-import java.util.concurrent.TimeUnit;
 import com.cnu.mentoring.vineet.cdp.oo.abstraction.AbstractPage;
+import org.apache.log4j.Logger;
+
+import java.util.concurrent.TimeUnit;
 
 public class HomePage extends AbstractPage {
 	private String domainUrl;

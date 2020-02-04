@@ -29,6 +29,9 @@
                     <includes>
                         <include>**/*Tests.class</include>
                     </includes>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>src/test/resources/${suiteXmlFile}</suiteXmlFile>
+                    </suiteXmlFiles>
                 </configuration>
              </plugin>
             <plugin>
@@ -71,6 +74,13 @@
             <groupId>io.rest-assured</groupId>
             <artifactId>json-schema-validator</artifactId>
             <version>4.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.epam.tat.module4</groupId>
+            <artifactId>calculator</artifactId>
+            <scope>system</scope>
+            <version>1.0</version>
+            <systemPath>${basedir}\src\lib\calculator-1.0.jar</systemPath>
         </dependency>
     </dependencies>
 </project>

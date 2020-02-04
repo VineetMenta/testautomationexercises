@@ -1,32 +1,26 @@
 package com.cnu.mentoring.vineet.cdp.oo.codeTask.Appliances;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
 import org.apache.log4j.Logger;
+
+import java.util.List;
 
 public class ApplianceUtils {
 	
-	private static final Logger LOGGER = Logger.getLogger(Appliances.class);
+	private static final Logger LOGGER = Logger.getLogger(ApplianceUtils.class);
 	
-	public static void sortAppliancesByPowerUsage(List<Appliances> appliances) {
-		Collections.sort(appliances, new Comparator<Appliances>() {
+	public static void sortAppliancesByPowerUsage(List<IAppliance> appliances) {
 
-			@Override
-			public int compare(Appliances a1, Appliances a2) {
-				return (int) (a2.powerUsage() - a1.powerUsage());
-			}
-		});
-		for (int apps = 0; apps < appliances.size(); apps++) {
-			LOGGER.info(appliances.get(apps).toString());
-		}
+		appliances.sort((a1, a2) -> (int) (a2.getPowerUsage() - a1.getPowerUsage()));
+
+		appliances.forEach(appliance -> LOGGER.info(appliance.getClass().getSimpleName()));
 	}
 
-	public static double getTotalPowerUsage (List<Appliances> appliances) {
+	public static double getTotalPowerUsage (List<IAppliance> appliances) {
 		double powerUsage = 0;
-		for (int appCount = 0; appCount < appliances.size(); appCount++) {
-			powerUsage = powerUsage + appliances.get(appCount).powerUsage();
+		for (IAppliance appliance: appliances) {
+			if(appliance.getState()) {
+				powerUsage = powerUsage + appliance.getEffectivePowerConsumedByAppliance();
+			}
 		}
 		return powerUsage;
 	}

@@ -1,8 +1,7 @@
 package com.cnu.mentoring.vineet.cdp.oo.inheritance;
 
-import org.apache.log4j.Logger;
-
 import com.cnu.mentoring.vineet.cdp.oo.abstraction.LoginPage;
+import org.apache.log4j.Logger;
 
 public class SignUpPage extends LoginPage {
     private String confirmEmail;

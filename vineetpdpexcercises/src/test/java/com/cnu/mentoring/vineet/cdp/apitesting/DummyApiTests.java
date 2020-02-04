@@ -8,7 +8,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.apache.log4j.Logger;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
@@ -25,7 +25,7 @@ public class DummyApiTests {
 
     private static ResponseSpecification response;
 
-    @BeforeTest
+    @BeforeClass
     public void setReqAndResSpecification(){
         Response allEmployeeDetails = given()
                 .when()

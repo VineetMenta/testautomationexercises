@@ -1,8 +1,5 @@
 package com.cnu.mentoring.vineet.cdp.collections.homeTask_6;
 
-import java.io.IOException;
-import java.lang.reflect.Method;
-
 class Printer<T> {
     public void printArray(T[] t) {
         for (T obj: t)
