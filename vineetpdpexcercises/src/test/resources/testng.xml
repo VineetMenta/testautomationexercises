@@ -7,6 +7,7 @@
     <test name="All Tests" thread-count="5">
         <packages>
             <package name="com.cnu.mentoring.vineet.cdp.apitesting" />
+            <package name="com.cnu.mentoring.vineet.cdp.java8" />
             <package name="com.cnu.mentoring.vineet.cdp.abstraction"/>
             <package name="com.cnu.mentoring.vineet.cdp.unittesting"/>
         </packages>
