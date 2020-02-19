@@ -1,0 +1,16 @@
+package com.cnu.mentoring.vineet.cdp.java8.HomeTask_1;
+
+import java.util.Comparator;
+
+public class SortEmployees implements Comparator<String> {
+
+    @Override
+    public int compare(String stringOne, String stringTwo) {
+        if ((stringOne).compareTo(stringTwo) > 0)
+            return 1;
+        else if ((stringOne).compareTo(stringTwo) < 0)
+            return -1;
+        else
+            return 0;
+    }
+}
