@@ -16,4 +16,12 @@ public class Employee {
     public String getEmployeeName() {
         return this.EmployeeName;
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "EmployeeId=" + EmployeeId +
+                ", EmployeeName='" + EmployeeName + '\'' +
+                '}';
+    }
 }
