@@ -1,4 +1,4 @@
-package com.cnu.mentoring.vineet.cdp.java8;
+package com.cnu.mentoring.vineet.cdp.java8.HomeTask_01_Tests;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;

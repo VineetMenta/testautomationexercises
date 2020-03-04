@@ -1,4 +1,4 @@
-package com.cnu.mentoring.vineet.cdp.java8.HomeTask_1;
+package com.cnu.mentoring.vineet.cdp.java8.HomeTask_01;
 
 public class Palindrome implements CheckString {
     @Override

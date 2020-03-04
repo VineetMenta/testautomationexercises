@@ -1,9 +1,9 @@
-package com.cnu.mentoring.vineet.cdp.java8;
+package com.cnu.mentoring.vineet.cdp.java8.HomeTask_01_Tests;
 
-import com.cnu.mentoring.vineet.cdp.java8.HomeTask_1.CheckString;
-import com.cnu.mentoring.vineet.cdp.java8.HomeTask_1.CheckStringRotation;
-import com.cnu.mentoring.vineet.cdp.java8.HomeTask_1.Palindrome;
-import com.cnu.mentoring.vineet.cdp.java8.HomeTask_1.StringRotation;
+import com.cnu.mentoring.vineet.cdp.java8.HomeTask_01.CheckString;
+import com.cnu.mentoring.vineet.cdp.java8.HomeTask_01.CheckStringRotation;
+import com.cnu.mentoring.vineet.cdp.java8.HomeTask_01.Palindrome;
+import com.cnu.mentoring.vineet.cdp.java8.HomeTask_01.StringRotation;
 import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;

@@ -1,6 +1,6 @@
-package com.cnu.mentoring.vineet.cdp.java8;
+package com.cnu.mentoring.vineet.cdp.java8.HomeTask_01_Tests;
 
-import com.cnu.mentoring.vineet.cdp.java8.HomeTask_1.ThreadImplementation;
+import com.cnu.mentoring.vineet.cdp.java8.HomeTask_01.ThreadImplementation;
 import org.testng.annotations.Test;
 
 public class ThreadsTests {

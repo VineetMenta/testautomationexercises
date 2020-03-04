@@ -1,8 +1,8 @@
-package com.cnu.mentoring.vineet.cdp.java8;
+package com.cnu.mentoring.vineet.cdp.java8.HomeTask_01_Tests;
 
-import com.cnu.mentoring.vineet.cdp.java8.HomeTask_1.SortLists;
-import com.cnu.mentoring.vineet.cdp.java8.HomeTask_1.SortNumbersList;
-import com.cnu.mentoring.vineet.cdp.java8.HomeTask_1.SortingStrategy;
+import com.cnu.mentoring.vineet.cdp.java8.HomeTask_01.SortLists;
+import com.cnu.mentoring.vineet.cdp.java8.HomeTask_01.SortNumbersList;
+import com.cnu.mentoring.vineet.cdp.java8.HomeTask_01.SortingStrategy;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
