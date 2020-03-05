@@ -1,6 +1,6 @@
 package com.cnu.mentoring.vineet.cdp.java8.HomeTask_02_Predicates_Tests;
 
-import com.cnu.mentoring.vineet.cdp.java8.HomeTask_02_Predicates.ProductAndResponseUtils;
+import com.cnu.mentoring.vineet.cdp.java8.HomeTask_Utils.ProductAndResponseUtils;
 import com.cnu.mentoring.vineet.cdp.java8.pojos.Product;
 import com.cnu.mentoring.vineet.cdp.java8.pojos.Response;
 import org.apache.log4j.Logger;
