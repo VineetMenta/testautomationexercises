@@ -16,6 +16,11 @@ public class Product {
         this.grade = grade;
     }
 
+    public Product(int price, String name){
+        this.price = price;
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
