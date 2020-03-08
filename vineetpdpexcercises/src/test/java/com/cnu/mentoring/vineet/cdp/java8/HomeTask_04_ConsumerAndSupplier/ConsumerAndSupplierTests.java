@@ -7,12 +7,49 @@ import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public class ConsumerAndSupplierTests {
 
     private static final Logger LOGGER = Logger.getLogger(ConsumerAndSupplierTests.class);
 
     List<Product> products;
+
+    Consumer<String> printStrategy = (printLocation) -> {
+        if (printLocation.equalsIgnoreCase("file"))
+            LOGGER.info("Printing on file");
+        else if (printLocation.isEmpty())
+            LOGGER.info("Printing on console");
+    };
+
+    Consumer<List<Product>> premiumProducts = (products) -> products
+            .forEach((product) -> {
+                if (product.getPrice() > 1000) {
+                    product.setGrade("Premium");
+                }
+                LOGGER.info(product);
+            });
+
+    Consumer<List<Product>> namePremiumProducts = (products) -> products
+            .forEach((product) -> {
+                if (product.getPrice() > 3000) {
+                    product.setName("*" + product.getName());
+                }
+                LOGGER.info(product);
+            });
+
+    Consumer<List<Product>> nameAndTestPremiumProducts = (products) -> products
+            .forEach((product) -> {
+                if (product.getPrice() > 3000) {
+                    product.setGrade("Premium");
+                    product.setName("*" + product.getName());
+                    LOGGER.info(product);
+                }
+            });
+    Supplier<Product> getRandomProduct = () -> this.products.get((int) (Math.random() * products.size()));
+
+    Supplier<Integer> getOTP = () -> (int) (Math.random() * 100000);
 
     @BeforeClass
     public void initializeProductsList() {
@@ -33,7 +70,32 @@ public class ConsumerAndSupplierTests {
     }
 
     @Test
-    public void testProductConsumers(){
+    public void testProductConsumers() {
+        printStrategy.accept("file");
+    }
 
+    @Test
+    public void testPremiumProducts() {
+        premiumProducts.accept(products);
+    }
+
+    @Test
+    public void namePremiumProducts() {
+        namePremiumProducts.accept(products);
+    }
+
+    @Test
+    public void nameAndTestPremiumProducts() {
+        nameAndTestPremiumProducts.accept(products);
+    }
+
+    @Test
+    public void getRandomProduct() {
+        LOGGER.info(getRandomProduct.get());
+    }
+
+    @Test
+    public void getRandomOTP() {
+        LOGGER.info(getOTP.get());
     }
 }
