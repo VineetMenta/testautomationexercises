@@ -1,2 +1,2 @@
-# cnuthementor
-For all my mentees
+# thejericho
+For all my test automation exercises
